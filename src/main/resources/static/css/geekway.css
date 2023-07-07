@@ -1,0 +1,631 @@
+:root {
+    --primary-color: #28ea4b;
+    --bg-color: #afe9ff;
+}
+
+html {
+    height: 100%;
+    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    background: url(/img/pexels-pieces-bg.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    margin: auto;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+select {
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    padding: .2em;
+}
+
+input[type=text] {
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: none;
+    padding: .3em;
+    outline: none;
+}
+
+dialog {
+    background-color: #d2d6d9;
+    min-width: 30%;
+    border: none;
+    border-radius: 15px;
+    padding: 0;
+    margin-top: 25vh;
+    max-width: 70%;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7)
+}
+
+/* Common */
+
+.content {
+    padding: 15px;
+    background-color: rgba(210, 214, 217, 0.82);
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 15px;
+}
+
+.searchBox {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.searchBox input {
+    padding-right: 1.7em;
+}
+
+.searchBox button {
+    margin-left: -2.3em;
+}
+
+.searchBox .svgButton svg {
+    height: 1em;
+}
+
+.svgButton {
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+}
+
+.svgButton.edit svg {
+    fill: #ffffff;
+    height: 2em;
+}
+
+.svgButton.save svg {
+    stroke: #ffffff;
+    height: 2em;
+}
+
+.svgButton.delete svg {
+    stroke: #ffffff;
+    height: 1.5em;
+}
+
+.svgButton.cancel svg {
+    stroke: #ffffff;
+    height: 1.5em;
+}
+
+/* Dialog */
+
+.dialogHeader {
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.dialogTitle {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.dialogHeaderButtons {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.svgButton {
+    cursor: pointer;
+}
+
+.dialogHeaderPadding {
+    flex: 1;
+}
+
+.dialogHeader .svgButton.close {
+    padding: 6px;
+    border-radius: 15px;
+}
+
+.dialogHeader .svgButton.close:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dialogCloseX {
+    stroke: #000000;
+    width: 1em;
+}
+
+.dialogHeader .svgButton.close:hover .dialogCloseX {
+    stroke: #ffffff;
+}
+
+#mainDialogContent {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.dialogButtons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: end;
+    column-gap: 5px;
+}
+
+.alertDialogContent {
+    padding: 15px;
+    align-self: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.alertDialogContent .primary {
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.alertDialogContent .secondary {
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.alertDialogContent .primary span,
+.alertDialogContent .secondary span {
+    font-weight: bold;
+}
+
+/* Header */
+
+.header {
+    background-color: #2e8f4d;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.headerGroupLeft {
+    align-self: end;
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 10px;
+    align-items: end;
+}
+
+.headerGroupLeft a {
+    color: #ffffff;
+    border-radius: 5px 5px 0 0;
+    padding: 7px;
+}
+
+.headerGroupLeft a:hover {
+    color: #85c4ff;
+}
+
+.headerGroupLeft a.selected {
+    font-weight: bold;
+    border-bottom: 3px solid #ffffff;
+}
+
+.headerGroupCenter {
+    padding: 10px 0 10px 0;
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.headerEventTitle {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.headerGroupCenter button {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.headerGroupCenter:hover button {
+    visibility: visible;
+}
+
+.headerGroupCenter .svgButton svg {
+    fill: #ffffff;
+    height: 1.5em;
+}
+
+.headerGroupRight {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: end;
+}
+
+/* Check Out/In */
+
+.gameScan {
+    align-self: center;
+    padding: 25px;
+}
+
+#gameScanInput {
+    font-size: 2.5em;
+}
+
+.gameScan input {
+    padding-right: 2.2em;
+}
+
+.gameScan button {
+    margin-left: -6em;
+    padding-right: 1.2em;
+}
+
+.gameScan .svgButton svg {
+    height: 4.5em;
+}
+
+/* Games */
+
+.gameFilters {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.gameGrid {
+    display: grid;
+    grid-template-columns: repeat(2, auto) 1fr;
+    row-gap: 10px;
+}
+
+.gameContainer {
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-content: center;
+}
+
+.game {
+    padding: 7px 2px 7px 7px;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gameTitle {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0 0 0 15px;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.gameTitle .svgButton {
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.gameTitle:hover .svgButton,
+.gameTitle .svgButton:hover {
+    visibility: visible;
+}
+
+.gameTitle .svgButton svg {
+    height: 1.2em;
+}
+
+.gameTitle .svgButton:hover svg {
+    opacity: 50%;
+}
+
+.gameEditSvg .svgBgCarrier {
+    stroke-width: 0;
+}
+
+.gameEditSvg .svgTracerCarrier {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.gameEditSvg .svgIconCarrier path {
+    d: path("M10 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V14M11 13L20 4M20 4V9M20 4H15");
+    stroke: #000000;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.gameTitlePadding {
+    flex: auto;
+}
+
+.game.checkoutCount {
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+
+.game.nearOverdue,
+.gameTitle.nearOverdue,
+.gameCopy.nearOverdue {
+    background-color: rgb(199, 166, 13, 0.4);
+}
+
+.game.overdue,
+.gameTitle.overdue,
+.gameCopy.overdue {
+    background-color: rgb(204, 0, 0, 0.4);
+}
+
+.game.extremeOverdue,
+.gameTitle.extremeOverdue,
+.gameCopy.extremeOverdue {
+    background-color: rgba(255, 0, 0, 0.7);
+}
+
+.copiesGrid {
+    padding-left: 15px;
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template-columns: repeat(3, auto) 1fr;
+}
+
+.gameCopyHeader {
+    grid-row: 1;
+    font-size: 0.8em;
+    padding: 4px 7px 4px 7px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid #000000;
+}
+
+.gameCopyHeader:first-child:nth-last-child(4),
+.gameCopyHeader:first-child:nth-last-child(4) ~ .gameCopyHeader {
+    display: none;
+}
+
+.gameCopy {
+    padding: 7px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid #000000;
+}
+
+.gameCopy a {
+    cursor: pointer;
+}
+
+/* Attendees */
+
+.attendeesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, auto) 1fr ;
+}
+
+.attendee {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 7px 1.5em 7px 7px;
+    font-size: 1.4em;
+}
+
+.attendee.header {
+    grid-row: 1;
+    font-size: 0.9em;
+}
+
+.attendee:nth-child(10n),
+.attendee:nth-child(10n - 1),
+.attendee:nth-child(10n - 2),
+.attendee:nth-child(10n - 3),
+.attendee:nth-child(10n - 4) {
+    background-color: #8fc8e1;
+}
+
+.attendee.name {
+    grid-column: 1;
+}
+
+.attendee.badgeId {
+    grid-column: 2;
+}
+
+.attendee.currentCheckouts {
+    grid-column: 3;
+}
+
+.attendee.checkoutCount {
+    grid-column: 4;
+}
+
+.attendee.playCount {
+    grid-column: 5;
+}
+
+/* Attendee Dialog */
+
+.attendeeDialogContent {
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 20px;
+}
+
+.attendeeInfo {
+    min-width: 20em;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 7px;
+    column-gap: 5px;
+    align-content: start;
+}
+
+.attendeeInfo label {
+    grid-column: 1;
+    align-self: center;
+    justify-self: end;
+}
+
+.attendeeInfo input {
+    grid-column: 2;
+}
+
+.attendeeBadgeId {
+    padding: .3em 0 .3em 0;
+}
+
+.attendeeInfo label,
+.attendeeInfo input[type=text] {
+    font-size: 1em;
+}
+
+.attendeeTimeline {
+    flex: initial;
+    display: grid;
+}
+
+.attendeeTimelineItem {
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    align-items: center;
+    padding-bottom: 16px;
+}
+
+.attendeeTimelineTime {
+    grid-column: 1 / 5;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.attendeeTimelineTimeDuration {
+    display: none;
+}
+
+.attendeeTimelineTime:hover .attendeeTimelineTimeDuration {
+    display: inline;
+}
+
+.attendeeTimelineItemCheckouts {
+    grid-column: 1;
+    font-size: 0.9em;
+    padding-right: 7px;
+    justify-self: end;
+    text-align: end;
+}
+
+.attendeeTimelineLine {
+    grid-column: 2;
+    width: 1px;
+    background-color: #000000;
+    align-self: stretch;
+    margin-bottom: -16px;
+}
+
+.attendeeTimelineItemDot {
+    grid-column: 3;
+    clip-path: circle(3px);
+    background-color: #2e8f4d;
+    padding: 3px;
+    margin-left: -3px;
+}
+
+.attendeeTimelineItemPlays {
+    grid-column: 4;
+    font-size: 0.9em;
+    padding-left: 4px;
+}
+
+.attendeeTimelineEventCheckin {
+    grid-column: 1 / 5;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.attendeeTimelineAttention {
+    color: #ab0000;
+}
+
+/* Copy Dialog */
+
+.copyDialogContent {
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 20px;
+}
+
+.copyDialogContent .copyInfo {
+    flex: 1;
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 5px;
+}
+
+.checkoutTimelineContainer {
+    padding: 0 15px 15px 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 10px;
+}
+
+.checkoutTimelineStatus {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.checkoutTimeline {
+    flex: initial;
+    display: grid;
+    grid-template-columns: repeat(2, auto) 1fr;
+    align-items: center;
+}
+
+.checkoutTimelineItemTime {
+    grid-column: 1;
+    font-size: 0.9em;
+    padding-right: 7px;
+    justify-self: end;
+}
+
+.checkoutTimelineItemDot {
+    grid-column: 2;
+    clip-path: circle(3px);
+    background-color: #2e8f4d;
+    padding: 3px;
+    margin-left: -3px;
+}
+
+.checkoutTimelineItemText {
+    grid-column: 3;
+    font-size: 0.9em;
+    padding-left: 7px;
+}
+
+.checkoutTimelineGap {
+    grid-column: 1;
+    font-size: 0.8em;
+    border-right: 1px solid #000000;
+    padding: 17px 4px 17px 0;
+    margin: -6px 0 -6px 0;
+    justify-self: end;
+}

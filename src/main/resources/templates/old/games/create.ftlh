@@ -1,0 +1,38 @@
+<#--@model BoardGameLibrary.Data.Models.Game-->
+
+<#--@{-->
+<#--ViewBag.Title = "Create";-->
+<#--Layout = "~/Views/Shared/_Layout.cshtml";-->
+<#--}-->
+<#import "../common/page.ftlh" as p/>
+<@p.page>
+<h2>Create</h2>
+<#--@using (Html.BeginForm())-->
+<#--{-->
+<#--@Html.AntiForgeryToken()-->
+
+<div class="form-horizontal">
+    <h4>Game</h4>
+<#--    @Html.ValidationSummary(true, "", new { @class = "text-danger" })-->
+    <div class="form-group">
+<#--        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })-->
+        <label class="control-label col-md-2">Title</label>
+        <div class="col-md-10">
+<#--            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })-->
+            <input type="text" class="form-control"/>
+<#--            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })-->
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+<div>
+<#--    @Html.ActionLink("Back to List", "Index")-->
+    <a href="">Back to List</a>
+</div>
+</@p.page>

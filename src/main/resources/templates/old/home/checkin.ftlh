@@ -1,0 +1,54 @@
+<#--@model BoardGameLibrary.Models.CopyCheckInViewModel-->
+<#macro checkinForm>
+<div id="check-in-form-wrapper">
+<#--    @using (Ajax.BeginForm("CheckInCopy", "Copies",-->
+<#--    new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "check-in-form-wrapper", OnSuccess = "clearCheckInForm", OnFailure = "updateCheckInForm" }))-->
+<#--    {-->
+<#--    @Html.AntiForgeryToken()-->
+
+    <div class="form-horizontal">
+        <div id="check-in-notification-wrapper"  class="col-md-12 notification-wrapper">
+<#--            @if (Model.Messages.Any())-->
+<#--            {-->
+            <div class="notification-panel fade-in fade-out-delayed">
+<#--                @foreach (var msg in Model.Messages)-->
+<#--                {-->
+                <span class="notification fade-in fade-out-delayed">@msg</span>
+<#--                }-->
+            </div>
+<#--            }-->
+        </div>
+        <br />
+<#--        @Html.ValidationSummary(true, "", new { @class = "text-danger" })-->
+        <div class="form-group">
+<#--            @Html.LabelFor(model => model.CopyLibraryID, htmlAttributes: new { @class = "control-label col-md-2" })-->
+            <label class="control-label col-md-2">Copy Library ID</label>
+            <div class="col-md-10">
+<#--                @Html.EditorFor(model => model.CopyLibraryID, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })-->
+                <input type="text" class="form-control" autocomplete="off"/>
+<#--                @Html.ValidationMessageFor(model => model.CopyLibraryID, "", new { @class = "text-danger" })-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Check In" class="btn btn-lg btn-primary" />
+            </div>
+        </div>
+    </div>
+<#--    }-->
+</div>
+
+<#--<script type="text/javascript">-->
+<#--    var notificationWrapper = $('#check-in-notification-wrapper');-->
+<#--    setTimeout(function () {-->
+<#--        notificationWrapper.html('');-->
+<#--    }, 4100);-->
+
+<#--    $('a:contains(Check In)').on('click', function () {-->
+<#--        setTimeout(function () {-->
+<#--            $('#check-in-form-wrapper #CopyLibraryID').focus();-->
+<#--        }, 200)-->
+<#--    });-->
+<#--</script>-->
+</#macro>

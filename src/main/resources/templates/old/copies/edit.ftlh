@@ -1,0 +1,57 @@
+<#--@model BoardGameLibrary.Data.Models.Copy-->
+
+<#--@{-->
+<#--ViewBag.Title = "Edit";-->
+<#--Layout = "~/Views/Shared/_Layout.cshtml";-->
+<#--}-->
+<#import "../common/page.ftlh" as p/>
+<@p.page>
+<h2>Edit</h2>
+<#--@using (Html.BeginForm())-->
+<#--{-->
+<#--@Html.AntiForgeryToken()-->
+
+<div class="form-horizontal">
+    <h4>Copy</h4>
+<#--    @Html.ValidationSummary(true, "", new { @class = "text-danger" })-->
+<#--    @Html.HiddenFor(model => model.ID)-->
+<#--    @Html.HiddenFor(model => model.GameID)-->
+
+    <div class="form-group">
+<#--        @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label col-md-2" })-->
+        <label class="control-label col-md-2">Owner</label>
+        <div class="col-md-10">
+<#--            @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { @class = "form-control" } })-->
+            <input type="text" class="form-control"/>
+<#--            @Html.ValidationMessageFor(model => model.OwnerName, "", new { @class = "text-danger" })-->
+        </div>
+    </div>
+
+    <div class="form-group">
+<#--        @Html.LabelFor(model => model.LibraryID, htmlAttributes: new { @class = "control-label col-md-2" })-->
+        <label class="control-label col-md-2">Library ID</label>
+        <div class="col-md-10">
+<#--            @Html.EditorFor(model => model.LibraryID, new { htmlAttributes = new { @class = "form-control" } })-->
+            <input type="text" class="form-control"/>
+<#--            @Html.ValidationMessageFor(model => model.LibraryID, "", new { @class = "text-danger" })-->
+        </div>
+    </div>
+
+    <div class="form-group">
+<#--        @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })-->
+        <label class="control-label col-md-2">Notes</label>
+        <div class="col-md-10">
+<#--            @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })-->
+            <input type="text" class="form-control"/>
+<#--            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })-->
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+<#--}-->
+</@p.page>

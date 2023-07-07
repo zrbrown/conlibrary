@@ -1,0 +1,107 @@
+<#--@model BoardGameLibrary.Models.CopyCheckOutViewModel-->
+
+<#macro checkoutForm>
+<div id="check-out-form-wrapper">
+<#--    @using (Ajax.BeginForm("CheckOutCopy", "Copies",-->
+<#--    new AjaxOptions-->
+<#--    {-->
+<#--    HttpMethod = "POST",-->
+<#--    UpdateTargetId = "check-out-form-wrapper",-->
+<#--    OnSuccess = "clearCheckOutForm",-->
+<#--    OnFailure = "updateCheckOutForm"-->
+<#--    }))-->
+<#--    {-->
+<#--    @Html.AntiForgeryToken()-->
+
+    <div id="clear-checkout-form" class="form-horizontal">
+        <div id="check-out-notification-wrapper" class="col-md-12 notification-wrapper">
+<#--            @if (Model.Messages.Any())-->
+<#--            {-->
+            <div class="notification-panel fade-in fade-out-delayed">
+<#--                @foreach (var msg in Model.Messages)-->
+<#--                {-->
+                <span class="notification fade-in fade-out-delayed">@msg</span>
+<#--                }-->
+            </div>
+<#--            }-->
+        </div>
+        <br />
+        <button id="btn-clear-checkout-form" type="reset" class="btn btn-default">Start Over</button>
+<#--        @Html.ValidationSummary(true, "", new { @class = "text-danger" })-->
+        <div class="form-group">
+<#--            @Html.LabelFor(model => model.CopyLibraryID, htmlAttributes: new { @class = "control-label col-md-2" })-->
+            <label class="control-label col-md-2">Copy Library ID</label>
+            <div class="col-md-10">
+<#--                @Html.EditorFor(model => model.CopyLibraryID, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })-->
+                <input type="text" class="form-control" autocomplete="off"/>
+<#--                @Html.ValidationMessageFor(model => model.CopyLibraryID, "", new { @class = "text-danger" })-->
+                <strong id="locatedGameTitle" class="floatleft green-text"></strong>
+            </div>
+        </div>
+
+        <div class="form-group">
+<#--            @Html.LabelFor(model => model.AttendeeBadgeID, htmlAttributes: new { @class = "control-label col-md-2" })-->
+            <label class="control-label col-md-2">Attendee Badge ID</label>
+            <div class="col-md-10">
+<#--                @Html.EditorFor(model => model.AttendeeBadgeID, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })-->
+                <input type="text" class="form-control" autocomplete="off"/>
+<#--                @Html.ValidationMessageFor(model => model.AttendeeBadgeID, "", new { @class = "text-danger" })-->
+            </div>
+        </div>
+
+        <div class="form-group">
+<#--            @Html.LabelFor(model => model.OverrideLimit, htmlAttributes: new { @class = "control-label col-md-2" })-->
+            <label class="control-label col-md-2">Override Limit</label>
+            <div class="col-md-10">
+<#--                @Html.CheckBoxFor(model => model.OverrideLimit, new { @class = "form-control bigcheckbox" })-->
+                <input type="checkbox" class="form-control bigcheckbox"/>
+<#--                @Html.ValidationMessageFor(model => model.OverrideLimit, "", new { @class = "text-danger" })-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Check Out" class="btn btn-lg btn-primary" />
+            </div>
+        </div>
+    </div>
+<#--    }-->
+</div>
+
+<#--<script type="text/javascript">-->
+<#--    var notificationWrapper = $('#check-out-notification-wrapper');-->
+<#--    setTimeout(function () {-->
+<#--        notificationWrapper.html('');-->
+<#--    }, 4100);-->
+
+<#--    $('#btn-clear-checkout-form').click(function (e) {-->
+<#--        e.preventDefault();-->
+
+<#--        $('#clear-checkout-form .text-box').val('');-->
+<#--        $('#OverrideLimit').removeAttr('checked');-->
+<#--        $('#CopyLibraryID').focus();-->
+<#--    });-->
+
+<#--    $('#CopyLibraryID').change(function () {-->
+<#--        var id = $("#CopyLibraryID").val();-->
+<#--        if (id.length >= 5) {-->
+<#--            $('#AttendeeBadgeID').focus();-->
+<#--        }-->
+<#--    });-->
+
+<#--    $("#CopyLibraryID").blur(function () {-->
+<#--        var id = $("#CopyLibraryID").val();-->
+<#--        if (id) {-->
+<#--            $.get('@Url.Action("GetCopyGameTitle", "Copies")', { copyId: id }, function (response) {-->
+<#--                $("#locatedGameTitle").text(response.title);-->
+<#--            });-->
+<#--        }-->
+<#--    });-->
+
+<#--    $('a:contains(Check Out)').on('click', function () {-->
+<#--        setTimeout(function () {-->
+<#--            $('#check-out-form-wrapper #CopyLibraryID').focus();-->
+<#--        }, 200)-->
+<#--    });-->
+<#--</script>-->
+</#macro>
