@@ -1,2 +1,11 @@
 server:
   port: 8080
+
+spring:
+  datasource:
+    username: geekway
+    password: geekway
+    url: jdbc:postgresql://localhost:5432/conlibrary
+  jpa.properties.hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    temp.use_jdbc_metadata_defaults: false

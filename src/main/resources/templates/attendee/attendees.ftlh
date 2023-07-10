@@ -19,9 +19,7 @@
         <#list attendees as attendee>
             <a href="/attendees/${attendee.id()?c}" hx-boost="true" hx-target="#mainDialogContent" class="attendee name" style="grid-row: ${attendee?counter + 1};">${attendee.name()} ${attendee.surname()}</a>
             <a href="/attendees/${attendee.id()?c}" hx-boost="true" hx-target="#mainDialogContent" class="attendee badgeId" style="grid-row: ${attendee?counter + 1};">${attendee.badgeId()}</a>
-            <a href="/attendees/${attendee.id()?c}" hx-boost="true" hx-target="#mainDialogContent" class="attendee currentCheckouts" style="grid-row: ${attendee?counter + 1};">
-                <#list attendee.currentCheckouts() as checkout>${checkout.gameTitle()}<#sep>, </#sep><#else>-</#list>
-            </a>
+            <a href="/attendees/${attendee.id()?c}" hx-boost="true" hx-target="#mainDialogContent" class="attendee currentCheckouts" style="grid-row: ${attendee?counter + 1};">${attendee.currentCheckouts()!"-"}</a>
             <a href="/attendees/${attendee.id()?c}" hx-boost="true" hx-target="#mainDialogContent" class="attendee checkoutCount" style="grid-row: ${attendee?counter + 1};">${attendee.checkoutCount()}</a>
             <a href="/attendees/${attendee.id()?c}" hx-boost="true" hx-target="#mainDialogContent" class="attendee playCount" style="grid-row: ${attendee?counter + 1};">${attendee.playCount()}</a>
         </#list>

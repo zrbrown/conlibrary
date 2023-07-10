@@ -35,8 +35,8 @@
                     </button>
                     <div class="gameTitlePadding" hx-get="/games/${game.id()?c}/copies" hx-target="#gameCopies-${game.id()?c}" hx-swap="beforeend"></div>
                 </div>
-                <div id="gameCheckouts-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 2;" hx-get="/games/${game.id()?c}/copies" hx-target="#gameCopies-${game.id()?c}" hx-swap="beforeend">${game.checkoutCount()} Checked out</div>
-                <div id="gameAvailability-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 3;" hx-get="/games/${game.id()?c}/copies" hx-target="#gameCopies-${game.id()?c}" hx-swap="beforeend">${game.copies()?size - game.checkoutCount()} available</div>
+                <div id="gameCheckouts-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 2;" hx-get="/games/${game.id()?c}/copies" hx-target="#gameCopies-${game.id()?c}" hx-swap="beforeend">${game.currentCheckoutCount()} Checked out</div>
+                <div id="gameAvailability-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 3;" hx-get="/games/${game.id()?c}/copies" hx-target="#gameCopies-${game.id()?c}" hx-swap="beforeend">${game.copyCount() - game.currentCheckoutCount()} available</div>
                 <div id="gameCopies-${game.id()?c}" class="copiesGrid">
                     <div class="gameCopyHeader" style="grid-column: 1">Library #</div>
                     <div class="gameCopyHeader" style="grid-column: 2">Library</div>

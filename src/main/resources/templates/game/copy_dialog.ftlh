@@ -1,7 +1,7 @@
 <#import "../common/dialog_header.ftlh" as h/>
 <#import "../common/duration_format.ftlh" as d/>
 <#import "copy_dialog_buttons.ftlh" as b/>
-<@h.header title="${game.title()}" buttons=[b.copyEditButton, b.copyDeleteButton]/>
+<@h.header title="${copy.gameTitle()}" buttons=[b.copyEditButton, b.copyDeleteButton]/>
 <div class="copyDialogContent">
     <div class="copyInfo">
         <span>${copy.library()} #${copy.libraryId()}</span>

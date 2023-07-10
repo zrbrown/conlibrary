@@ -1,13 +1,13 @@
 <#import "../common/dialog_buttons.ftlh" as b/>
-<#macro attendeeEditButton>
-    <@b.editButton "/attendees/1/edit"/>
+<#macro attendeeEditButton attendeeId>
+    <@b.editButton "/attendees/${attendeeId}/edit"/>
 </#macro>
-<#macro attendeeDeleteButton>
-    <@b.deleteButton "/attendees/1"/>
+<#macro attendeeDeleteButton attendeeId>
+    <@b.deleteButton "/attendees/${attendeeId}"/>
 </#macro>
-<#macro attendeeCancelButton>
-    <@b.cancelButton "/attendees/1/cancel"/>
+<#macro attendeeCancelButton attendeeId>
+    <@b.cancelButton "/attendees/${attendeeId}/cancel"/>
 </#macro>
-<#macro attendeeSaveButton>
-    <@b.saveButton "/attendees/1"/>
+<#macro attendeeSaveButton attendeeId>
+    <@b.saveButton "/attendees/${attendeeId}"/>
 </#macro>

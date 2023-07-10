@@ -11,8 +11,8 @@
     </button>
     <div class="gameTitlePadding" hx-get="/games/${game.id()?c}/copies/clear"></div>
 </div>
-<div id="gameCheckouts-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 2;" hx-get="/games/${game.id()?c}/copies/clear" hx-swap-oob="true">${game.checkoutCount()} Checked out</div>
-<div id="gameAvailability-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 3;" hx-get="/games/${game.id()?c}/copies/clear" hx-swap-oob="true">${game.copies()?size - game.checkoutCount()} available</div>
+<div id="gameCheckouts-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 2;" hx-get="/games/${game.id()?c}/copies/clear" hx-swap-oob="true">${game.currentCheckoutCount()} Checked out</div>
+<div id="gameAvailability-${game.id()?c}" class="game checkoutCount<@c.checkoutStatusClass game.checkoutStatus()/>" style="grid-column: 3;" hx-get="/games/${game.id()?c}/copies/clear" hx-swap-oob="true">${game.copyCount() - game.currentCheckoutCount()} available</div>
 <#list copies as copy>
     <div id="gameCopy-${game.id()?c}" class="gameCopy<@c.checkoutStatusClass copy.checkoutStatus()/>" style="grid-row: ${copy?counter + 1};grid-column: 1;">
         <a href="/games/copies/${copy.id()?c}" hx-boost="true" hx-target="#mainDialogContent">${copy.libraryId()}</a>
@@ -22,12 +22,12 @@
     </div>
     <#if copy.borrower()??>
         <div id="gameCopy-${game.id()?c}" class="gameCopy<@c.checkoutStatusClass copy.checkoutStatus()/>" style="grid-row: ${copy?counter + 1};grid-column: 3;">
-            <a href="/attendees/${copy.borrower().id()?c}" hx-boost="true" hx-target="#mainDialogContent">${copy.borrower().name()}</a>
+            <a href="/attendees/${copy.borrower().id()?c}" hx-boost="true" hx-target="#mainDialogContent">${copy.borrower().name()} ${copy.borrower().surname()}</a>
         </div>
     <#else>
         <div id="gameCopy-${game.id()?c}" class="gameCopy<@c.checkoutStatusClass copy.checkoutStatus()/>" style="grid-row: ${copy?counter + 1};grid-column: 3;">-</div>
     </#if>
     <div id="gameCopy-${game.id()?c}" class="gameCopy<@c.checkoutStatusClass copy.checkoutStatus()/>" style="grid-row: ${copy?counter + 1};grid-column: 4;">
-        ${copy.checkoutTimeDisplay()} (<@d.format copy.checkoutDuration()/>)
+        <#if copy.activeCheckoutStart()??>${copy.checkoutTimeDisplay()} (<@d.format copy.checkoutDuration()/>)<#else>-</#if>
     </div>
 </#list>

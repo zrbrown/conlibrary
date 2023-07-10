@@ -35,6 +35,7 @@ create table attendees (
     first_name text      not null,
     last_name  text,
     pronouns   text      not null,
+    badge_id   text      not null,
     event      bigint    not null references events (id)
 );
 

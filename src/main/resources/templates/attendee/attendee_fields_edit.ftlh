@@ -1,7 +1,7 @@
 <#import "attendee_dialog_buttons.ftlh" as b/>
 <div hx-swap-oob="outerHtml:.dialogHeaderButtons">
-    <@b.attendeeCancelButton/>
-    <@b.attendeeSaveButton/>
+    <@b.attendeeCancelButton attendee.id()/>
+    <@b.attendeeSaveButton attendee.id()/>
 </div>
 <div id="attendeeInfo" class="attendeeInfo" hx-swap-oob="outerHtml:.attendeeInfo">
     <label for="">First Name</label>
