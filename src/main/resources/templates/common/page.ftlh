@@ -3,7 +3,7 @@
     <a href="/attendees" <#if selectedNav == "attendees">class="selected" </#if>hx-boost="true" hx-target=".content">Attendees</a>
     <a href="/games" <#if selectedNav == "games">class="selected" </#if>hx-boost="true" hx-target=".content">Games</a>
     <a href="/checkouts" <#if selectedNav == "checkouts">class="selected" </#if>hx-boost="true" hx-target=".content">Check In/Out</a>
-    <a href="/import" <#if selectedNav == "import">class="selected" </#if>hx-boost="true" hx-target=".content">Import</a>
+    <a href="/manage" <#if selectedNav == "manage">class="selected" </#if>hx-boost="true" hx-target=".content">Manage</a>
 </#macro>
 <#macro page selectedNav>
     <#if isHtmx!false>

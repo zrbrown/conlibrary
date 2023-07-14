@@ -7,4 +7,45 @@
     </type-mapping>
 
     <table-filter match-schema="public" match-name="flyway_schema_history" exclude="true"/>
+
+    <table schema="public" name="events" class="com.geekway.conlibrary.db.entity.Event">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>q
+        </primary-key>
+    </table>
+    <table schema="public" name="libraries" class="com.geekway.conlibrary.db.entity.Library">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
+    <table schema="public" name="games" class="com.geekway.conlibrary.db.entity.Game">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
+    <table schema="public" name="game_copies" class="com.geekway.conlibrary.db.entity.GameCopy">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
+    <table schema="public" name="library_game_copies" class="com.geekway.conlibrary.db.entity.LibraryGameCopy">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
+    <table schema="public" name="attendees" class="com.geekway.conlibrary.db.entity.Attendee">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
+    <table schema="public" name="checkouts" class="com.geekway.conlibrary.db.entity.Checkout">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
+    <table schema="public" name="plays" class="com.geekway.conlibrary.db.entity.Play">
+        <primary-key property="id">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </primary-key>
+    </table>
 </hibernate-reverse-engineering>

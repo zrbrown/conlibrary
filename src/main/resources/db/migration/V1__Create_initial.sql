@@ -23,11 +23,12 @@ create table game_copies (
     game_id bigint    not null references games (id)
 );
 
-create table libraries_game_copies (
+create table library_game_copies (
     id              bigserial not null primary key,
     library_copy_id text      not null,
     library_id      bigint    not null references libraries (id),
-    game_copy_id    bigint    not null references game_copies (id)
+    game_copy_id    bigint    not null references game_copies (id),
+    unique (library_copy_id, library_id)
 );
 
 create table attendees (
@@ -36,15 +37,16 @@ create table attendees (
     last_name  text,
     pronouns   text      not null,
     badge_id   text      not null,
-    event      bigint    not null references events (id)
+    event_id   bigint    not null references events (id),
+    unique (badge_id, event_id)
 );
 
 create table checkouts (
-    id             bigserial not null primary key,
-    start_datetime timestamp not null,
-    end_datetime   timestamp,
-    game_copy_id   bigint    not null references game_copies (id),
-    attendee_id    bigint    not null references attendees (id)
+    id                   bigserial not null primary key,
+    start_datetime       timestamp not null,
+    end_datetime         timestamp,
+    library_game_copy_id bigint    not null references library_game_copies (id),
+    attendee_id          bigint    not null references attendees (id)
 );
 
 create table plays (

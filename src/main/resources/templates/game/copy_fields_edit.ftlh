@@ -5,9 +5,9 @@
 </div>
 <div class="copyInfo" hx-swap-oob="outerHtml:.copyInfo">
     <label for="">Library</label>
-    <input type="text" name="library" value="${copy.library()}"/>
+    <input type="text" name="library" value="${copy.libraryName()}"/>
     <label for="">Library #</label>
-    <input type="text" name="libraryId" value="${copy.libraryId()}"/>
+    <input type="text" name="libraryId" value="${copy.libraryCopyId()}"/>
     <label for="">Owner</label>
     <input type="text" name="owner" value="${copy.owner()}"/>
     <label for="">Notes</label>

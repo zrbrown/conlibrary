@@ -9,5 +9,4 @@ public class ConlibraryApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConlibraryApplication.class, args);
     }
-
 }

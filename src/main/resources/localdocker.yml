@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://geekway:5432/conlibrary
+  flyway:
+    locations: classpath:/db/migration,classpath:/db/testdata
+    execute-in-transaction: false

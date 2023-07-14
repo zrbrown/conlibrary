@@ -3,7 +3,7 @@
 <#import "attendee_dialog_buttons.ftlh" as b/>
 <#macro edit><@b.attendeeEditButton attendee.id()/></#macro>
 <#macro delete><@b.attendeeDeleteButton attendee.id()/></#macro>
-<@h.header title="${attendee.name()} ${attendee.surname()} (${attendee.pronouns()})" buttons=[edit, delete]/>
+<@h.header color="#0062cc" title="${attendee.name()} ${attendee.surname()} (${attendee.pronouns()})" buttons=[edit, delete]/>
 <div class="attendeeDialogContent">
     <div class="attendeeInfo">
         <div class="attendeeBadgeId">Badge #${attendee.badgeId()}</div>

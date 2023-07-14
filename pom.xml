@@ -2,20 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.geekway</groupId>
     <artifactId>conlibrary</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>conlibrary</name>
-    <description>conlibrary</description>
+    <description>Board game convention library app</description>
+
     <properties>
         <java.version>20</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,24 +74,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.hibernate.orm.tooling</groupId>
-                <artifactId>hibernate-enhance-maven-plugin</artifactId>
-                <version>${hibernate.version}</version>
-                <executions>
-                    <execution>
-                        <id>enhance</id>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                        <configuration>
-                            <enableLazyInitialization>true</enableLazyInitialization>
-                            <enableDirtyTracking>true</enableDirtyTracking>
-                            <enableAssociationManagement>true</enableAssociationManagement>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 <!--            <plugin>-->
 <!--                <groupId>org.graalvm.buildtools</groupId>-->
 <!--                <artifactId>native-maven-plugin</artifactId>-->
@@ -95,6 +81,29 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -127,7 +136,7 @@
                 <artifactId>hibernate-tools-maven</artifactId>
                 <version>6.2.6.Final</version>
                 <configuration>
-                    <outputDirectory>${build.sourceDirectory}</outputDirectory>
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
                     <revengFile>src/main/resources/db/hibernate.reveng.xml</revengFile>
                     <packageName>com.geekway.conlibrary.db.entity</packageName>
                     <propertyFile>src/main/resources/db/hibernate.properties</propertyFile>

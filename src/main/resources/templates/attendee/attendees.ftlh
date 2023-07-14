@@ -2,7 +2,7 @@
 <@p.page "attendees">
     <div class="searchBox">
         <input type="text" placeholder="Attendee, ID..."/>
-        <button class="svgButton">
+        <button type="button" class="svgButton">
             <svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 390.704 390.704" xml:space="preserve">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

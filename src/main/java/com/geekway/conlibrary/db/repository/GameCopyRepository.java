@@ -1,8 +1,8 @@
 package com.geekway.conlibrary.db.repository;
 
 import com.geekway.conlibrary.db.dto.GameCopyDetailDto;
-import com.geekway.conlibrary.db.dto.GameCopyDto;
-import com.geekway.conlibrary.db.entity.GameCopies;
+import com.geekway.conlibrary.db.dto.GameCopySummaryDto;
+import com.geekway.conlibrary.db.entity.GameCopy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,37 +13,37 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface GameCopyRepository extends JpaRepository<GameCopies, Long> {
+public interface GameCopyRepository extends JpaRepository<GameCopy, Long> {
 
     @Query("""
             select new com.geekway.conlibrary.db.dto.GameCopyDetailDto(
-                        gc.id, lgc.libraryCopyId, lgc.libraries.name, gc.owner, gc.notes, g.title
-                    ) from GameCopies gc
-                    join gc.librariesGameCopieses lgc
-                    join gc.games g
+                        gc.id, lgc.libraryCopyId, lgc.id, lgc.library.name, gc.owner, gc.notes, g.title
+                    ) from GameCopy gc
+                    join gc.libraryGameCopies lgc
+                    join gc.game g
                     where gc.id = :gameCopyId and
-                    lgc.libraries.events.id = :eventId
+                    lgc.library.event.id = :eventId
             """)
-    Optional<GameCopyDetailDto> findGameCopy(@Param("gameCopyId") long gameCopyId,
-                                             @Param("eventId") long eventId);
+    Optional<GameCopyDetailDto> findGameCopyDetail(@Param("gameCopyId") long gameCopyId,
+                                                   @Param("eventId") long eventId);
 
     @Query("""
-            select new com.geekway.conlibrary.db.dto.GameCopyDto(
-                gc.id, lgc.libraryCopyId, lgc.libraries.name, gc.owner, gc.notes, attendee.start, attendee.id, attendee.first, attendee.last
-            ) from GameCopies gc
-            join gc.librariesGameCopieses lgc
-            left join lateral (select min(c_c.startDatetime) as start, c_a.id as id, c_a.firstName as first, c_a.lastName as last
-                from Checkouts c_c
-                join c_c.gameCopies c_gc
-                join c_gc.games c_g
-                join c_c.attendees c_a
-                where c_g.id = gc.games.id and
-                c_c.endDatetime is null
-                group by c_a.id, c_a.firstName, c_a.lastName) attendee
-            where gc.games.id = :gameId and
-            lgc.libraries.events.id = :eventId
+            select new com.geekway.conlibrary.db.dto.GameCopySummaryDto(
+                gc.id, lgc.libraryCopyId, lgc.library.name, gc.owner, gc.notes,
+                attendee.start, attendee.id, attendee.first, attendee.last
+            ) from GameCopy gc
+            join gc.libraryGameCopies lgc
+            left join lateral (
+                select c_c.startDatetime as start, c_a.id as id, c_a.firstName as first, c_a.lastName as last
+                    from Checkout c_c
+                    join c_c.libraryGameCopy.gameCopy c_gc
+                    join c_c.attendee c_a
+                    where c_gc.id = gc.id and
+                    c_c.endDatetime is null) attendee
+            where gc.game.id = :gameId and
+            lgc.library.event.id = :eventId
             """)
-    Page<GameCopyDto> findCopiesByGame(@Param("gameId") long gameId,
-                                       @Param("eventId") long eventId,
-                                       Pageable pageable);
+    Page<GameCopySummaryDto> findCopiesByGame(@Param("gameId") long gameId,
+                                              @Param("eventId") long eventId,
+                                              Pageable pageable);
 }

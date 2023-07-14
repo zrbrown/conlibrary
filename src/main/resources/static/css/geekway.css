@@ -42,13 +42,25 @@ input[type=text] {
     outline: none;
 }
 
+input[type=checkbox] {
+    width: 1.4em;
+    height: 1.4em;
+}
+
+button[type=submit] {
+    background-color: #0062cc;
+    color: #ffffff;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 3px;
+    padding: 0.4em;
+}
+
 dialog {
     background-color: #d2d6d9;
-    min-width: 30%;
     border: none;
     border-radius: 15px;
     padding: 0;
-    max-width: 70%;
 }
 
 dialog::backdrop {
@@ -110,6 +122,13 @@ dialog::backdrop {
     height: 1.5em;
 }
 
+.labeledCheckbox {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: last baseline;
+    justify-content: center;
+}
+
 /* Dialog */
 
 .dialogHeader {
@@ -158,6 +177,9 @@ dialog::backdrop {
 #mainDialogContent {
     display: flex;
     flex-flow: column wrap;
+    min-width: 35vw;
+    min-height: 20vh;
+    max-width: 70vw;
 }
 
 .dialogButtons {
@@ -170,9 +192,11 @@ dialog::backdrop {
 .alertDialogContent {
     padding: 15px;
     align-self: center;
+    flex: 1;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: center;
     row-gap: 10px;
 }
 
@@ -261,8 +285,18 @@ dialog::backdrop {
 
 /* Check Out/In */
 
+.gameScanContent {
+    min-width: 35vw;
+    min-height: 20vh;
+    max-width: 70vw;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
 .gameScan {
     align-self: center;
+    justify-content: center;
     padding: 25px;
 }
 
@@ -498,8 +532,9 @@ dialog::backdrop {
 }
 
 .attendeeTimeline {
-    flex: initial;
+    flex: 1;
     display: grid;
+    grid-template-columns: 1fr;
 }
 
 .attendeeTimelineItem {
